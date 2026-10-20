@@ -1,0 +1,43 @@
+Informe
+Precision del modelo (Accuracy)
+
+Para evaluar el rendimiento del modelo se dividio el conjunto de datos en entrenamiento y prueba mediante train_test_split. El modelo fue entrenado con 17 mensajes y evaluado con 5 mensajes que no habia visto previamente.
+
+El accuracy obtenido fue de 0.80, lo que indica que el modelo clasifico correctamente el 80% de los mensajes utilizados para la prueba. Esto equivale a 4 mensajes clasificados correctamente de un total de 5.
+
+Reporte de clasificacion
+
+El reporte de clasificacion permite analizar el rendimiento del modelo para cada clase.
+
+Para la clase grooming se obtuvo una precision de 1.00 y un recall de 0.67. Esto significa que todas las veces que el modelo predijo grooming acerto, aunque no logro detectar todos los mensajes grooming presentes en el conjunto de prueba.
+
+Para la clase no_grooming se obtuvo una precision de 0.67 y un recall de 1.00. Esto indica que el modelo detecto correctamente todos los mensajes no_grooming, aunque cometio un error al clasificar un mensaje grooming como no_grooming.
+
+El valor F1-score fue de 0.80 para ambas clases, mostrando un rendimiento equilibrado entre precision y recall.
+
+Matriz de confusion
+
+La matriz de confusion obtenida fue:
+
+Plain Text
+[[2 1]
+[0 2]]
+
+La matriz muestra que el modelo clasifico correctamente 2 mensajes grooming y 2 mensajes no_grooming. Tambien se observa que un mensaje grooming fue clasificado incorrectamente como no_grooming.
+
+En total, el modelo realizo cuatro clasificaciones correctas y una incorrecta.
+
+Clasificacion de nuevos mensajes
+
+El modelo clasifico los mensajes nuevos de la siguiente manera:
+
+"¿Podes mandarme una foto tuya? No se la muestres a nadie." → grooming
+"¿Jugamos Minecraft esta tarde?" → no_grooming
+"No le digas a tus papas que hablamos, ¿si?" → grooming
+"¿Terminaste el trabajo practico de historia?" → no_grooming
+
+Los resultados muestran que el modelo identifica como grooming los mensajes que contienen palabras asociadas con secreto, aislamiento o solicitud de fotografias. Por otro lado, los mensajes relacionados con actividades recreativas o academicas fueron clasificados como no_grooming.
+
+Conclusion
+
+Se implemento un clasificador Naive Bayes utilizando tecnicas de procesamiento de lenguaje natural y CountVectorizer para transformar los mensajes en datos numericos. El modelo alcanzo una precision general del 80% sobre el conjunto de prueba y fue capaz de clasificar correctamente la mayoria de los mensajes, incluyendo mensajes nuevos no presentes en el entrenamiento. Esto demuestra que Naive Bayes puede utilizarse para detectar patrones de grooming a partir de texto, aunque el rendimiento podria mejorar utilizando un conjunto de datos mas grande.
